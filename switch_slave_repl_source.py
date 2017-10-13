@@ -32,7 +32,7 @@ def change_newip_slave(ip,port,user,pwd,z_logfile_name,z_logfile_pos,n_ip,n_port
     #变更新ip同步的数据源
     # stop slave;reset slave all;
     n_cmd_str = "stop slave;select sleep(2);reset slave all"
-    n_change_master = 'CHANGE MASTER TO MASTER_HOST="%s",MASTER_USER="repl",MASTER_PASSWORD="eastmoney",MASTER_PORT=%d,' \
+    n_change_master = 'CHANGE MASTER TO MASTER_HOST="%s",MASTER_USER="test_repl",MASTER_PASSWORD="123456",MASTER_PORT=%d,' \
                       'MASTER_LOG_FILE="%s",MASTER_LOG_POS=%d,MASTER_CONNECT_RETRY=10 for channel "m%s_%d";'\
                       %(ip,int(port),z_logfile_name,int(z_logfile_pos),int(ip.split('.')[3]),int(port))
     n_start_slave = 'start slave for channel "m%s_%d"'%(int(ip.split('.')[3]),int(port))
